@@ -9,6 +9,8 @@ namespace Exiled.Events.EventArgs.Scp914
 {
     using API.Features;
 
+    using global::Scp914;
+
     using Interfaces;
 
     /// <summary>
@@ -25,10 +27,14 @@ namespace Exiled.Events.EventArgs.Scp914
         /// <param name="isAllowed">
         /// <inheritdoc cref="IsAllowed" />
         /// </param>
+        /// <param name="knobSetting">
+        /// <inheritdoc cref="KnobSetting"/>
+        /// </param>
         public ActivatingEventArgs(Player player, bool isAllowed = true)
         {
             Player = player;
             IsAllowed = isAllowed;
+            KnobSetting = Scp914.KnobStatus;
         }
 
         /// <summary>
@@ -40,5 +46,10 @@ namespace Exiled.Events.EventArgs.Scp914
         /// Gets the player who's activating SCP-914.
         /// </summary>
         public Player Player { get; }
+
+        /// <summary>
+        /// Gets or sets SCP-914 working knob setting.
+        /// </summary>
+        public Scp914KnobSetting KnobSetting { get; set; }
     }
 }
