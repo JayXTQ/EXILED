@@ -31,7 +31,6 @@ namespace Exiled.Events.EventArgs.Scp914
         {
             Player = player;
             IsAllowed = isAllowed;
-            KnobSetting = Scp914.KnobStatus;
         }
 
         /// <summary>
@@ -47,6 +46,10 @@ namespace Exiled.Events.EventArgs.Scp914
         /// <summary>
         /// Gets or sets SCP-914 working knob setting.
         /// </summary>
-        public Scp914KnobSetting KnobSetting { get; set; }
+        public Scp914KnobSetting KnobSetting
+        {
+            get => Scp914.KnobStatus;
+            set => Scp914.KnobStatus = value;
+        }
     }
 }
