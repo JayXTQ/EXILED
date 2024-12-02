@@ -118,6 +118,15 @@ namespace Exiled.API.Features.Waves
         }
 
         /// <summary>
+        /// Gets all wave timers.
+        /// </summary>
+        /// <returns>A list of all wave timers.</returns>
+        public static List<WaveTimer> GetWaveTimers()
+        {
+            return TimedWave.GetTimedWaves().Select(l => l.Timer).ToList();
+        }
+
+        /// <summary>
         /// Destroys this wave timer.
         /// </summary>
         public void Destroy()

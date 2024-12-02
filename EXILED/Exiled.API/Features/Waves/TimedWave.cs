@@ -106,6 +106,26 @@ namespace Exiled.API.Features.Waves
         }
 
         /// <summary>
+        /// Get all timed waves.
+        /// </summary>
+        /// <returns>
+        /// A list of all timed waves.
+        /// </returns>
+        public static List<TimedWave> GetTimedWaves()
+        {
+            List<TimedWave> waves = new();
+            foreach (SpawnableWaveBase wave in WaveManager.Waves)
+            {
+                if (wave is TimeBasedWave timeBasedWave)
+                {
+                    waves.Add(new (timeBasedWave));
+                }
+            }
+
+            return waves;
+        }
+
+        /// <summary>
         /// Destroys this wave.
         /// </summary>
         public void Destroy()
