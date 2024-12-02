@@ -158,6 +158,14 @@ namespace Exiled.API.Features.Waves
         }
 
         /// <summary>
+        /// Unpauses this wave timer.
+        /// </summary>
+        public void Unpause()
+        {
+            waveTimer.Pause(0);
+        }
+
+        /// <summary>
         /// Resets this wave timer.
         /// </summary>
         /// <param name="resetInterval">
