@@ -36,6 +36,16 @@ namespace Exiled.API.Features.Waves
         }
 
         /// <summary>
+        /// Gets the name of the wave timer.
+        /// </summary>
+        public string Name => timedWave.GetType().Name;
+
+        /// <summary>
+        /// Gets a value indicating whether the wave is a mini wave.
+        /// </summary>
+        public bool IsMiniWave => timedWave.GetType() == typeof(NtfMiniWave) || timedWave.GetType() == typeof(ChaosMiniWave);
+
+        /// <summary>
         /// Gets the wave timer instance.
         /// </summary>
         public WaveTimer Timer => new(timedWave.Timer);

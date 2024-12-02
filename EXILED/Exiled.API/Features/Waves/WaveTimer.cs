@@ -17,6 +17,8 @@ namespace Exiled.API.Features.Waves
 
     using Respawning;
 
+    using Respawning.Waves;
+
     /// <summary>
     /// Represents a wave timer.
     /// </summary>
@@ -35,6 +37,16 @@ namespace Exiled.API.Features.Waves
         {
             waveTimer = wave;
         }
+
+        /// <summary>
+        /// Gets the name of the wave timer.
+        /// </summary>
+        public string Name => waveTimer._wave.GetType().Name;
+
+        /// <summary>
+        /// Gets a value indicating whether the wave is a mini wave.
+        /// </summary>
+        public bool IsMiniWave => waveTimer._wave.GetType() == typeof(NtfMiniWave) || waveTimer._wave.GetType() == typeof(ChaosMiniWave);
 
         /// <summary>
         /// Gets the amount of time left before the wave spawns.
