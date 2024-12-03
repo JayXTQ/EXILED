@@ -43,7 +43,7 @@ namespace Exiled.API.Features.Waves
         /// <summary>
         /// Gets a value indicating whether the wave is a mini wave.
         /// </summary>
-        public bool IsMiniWave => timedWave.GetType() == typeof(NtfMiniWave) || timedWave.GetType() == typeof(ChaosMiniWave);
+        public bool IsMiniWave => timedWave is IMiniWave;
 
         /// <summary>
         /// Gets the wave timer instance.
@@ -128,6 +128,7 @@ namespace Exiled.API.Features.Waves
         /// A value indicating whether the wave was found.
         /// </returns>
         public static bool TryGetTimedWave<T>(out TimedWave wave)
+            where T : TimeBasedWave
         {
             foreach (SpawnableWaveBase waveBase in WaveManager.Waves)
             {

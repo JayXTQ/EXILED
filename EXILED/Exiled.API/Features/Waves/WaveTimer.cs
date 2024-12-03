@@ -46,7 +46,7 @@ namespace Exiled.API.Features.Waves
         /// <summary>
         /// Gets a value indicating whether the wave is a mini wave.
         /// </summary>
-        public bool IsMiniWave => waveTimer._wave.GetType() == typeof(NtfMiniWave) || waveTimer._wave.GetType() == typeof(ChaosMiniWave);
+        public bool IsMiniWave => waveTimer._wave is IMiniWave;
 
         /// <summary>
         /// Gets the amount of time left before the wave spawns.
