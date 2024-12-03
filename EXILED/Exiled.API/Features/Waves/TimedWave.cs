@@ -116,6 +116,33 @@ namespace Exiled.API.Features.Waves
         }
 
         /// <summary>
+        /// Get the timed wave for the specified type.
+        /// </summary>
+        /// <param name="wave">
+        /// The wave type to get.
+        /// </param>
+        /// <typeparam name="T">
+        /// The type of wave to get. Must be a <see cref="TimeBasedWave"/>. I.e. <see cref="NtfSpawnWave"/> or <see cref="NtfMiniWave"/>.
+        /// </typeparam>
+        /// <returns>
+        /// A value indicating whether the wave was found.
+        /// </returns>
+        public static bool TryGetTimedWave<T>(out TimedWave wave)
+        {
+            foreach (SpawnableWaveBase waveBase in WaveManager.Waves)
+            {
+                if (waveBase is not TimeBasedWave timeWave || timeWave.GetType() != typeof(T))
+                    continue;
+
+                wave = new(timeWave);
+                return true;
+            }
+
+            wave = null;
+            return false;
+        }
+
+        /// <summary>
         /// Get all timed waves.
         /// </summary>
         /// <returns>
