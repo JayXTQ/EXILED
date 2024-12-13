@@ -33,18 +33,14 @@ namespace Exiled.API.Features.Roles
         public override RoleTypeId Type => Base.RoleTypeId;
 
         /// <summary>
-        /// Gets or sets the <see cref="SpawnableTeamType"/>.
+        /// Gets the <see cref="Team"/>.
         /// </summary>
-        public SpawnableTeamType SpawnableTeamType
-        {
-            get => Base.AssignedSpawnableTeam;
-            set => Base.AssignedSpawnableTeam = value;
-        }
+        public Team Team => Base.Team;
 
         /// <summary>
         /// Gets the player's unit name.
         /// </summary>
-        public string UnitName => UnitNameMessageHandler.GetReceived(Base.AssignedSpawnableTeam, Base.UnitNameId);
+        public string UnitName => Base.RoleName;
 
         /// <summary>
         /// Gets or sets the <see cref="UnitNameId"/>.

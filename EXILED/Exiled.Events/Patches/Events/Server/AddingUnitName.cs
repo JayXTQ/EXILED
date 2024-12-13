@@ -26,6 +26,8 @@ namespace Exiled.Events.Patches.Events.Server
     /// Adds the <see cref="Handlers.Server.AddingUnitName"/> event.
     /// </summary>
     [EventPatch(typeof(Handlers.Server), nameof(Handlers.Server.AddingUnitName))]
+
+    // TODO: This patch is not working, it needs to be fixed.
     [HarmonyPatch(typeof(UnitNameMessageHandler), nameof(UnitNameMessageHandler.SendNew))]
     internal static class AddingUnitName
     {

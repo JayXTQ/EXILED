@@ -28,6 +28,8 @@ namespace Exiled.Events.Patches.Events.Map
     /// Adds the <see cref="Map.AnnouncingNtfEntrance" /> event.
     /// </summary>
     [EventPatch(typeof(Map), nameof(Map.AnnouncingNtfEntrance))]
+
+    // TODO: Fix this patch, I do not know how patches work.
     [HarmonyPatch(typeof(NineTailedFoxNamingRule), nameof(NineTailedFoxNamingRule.PlayEntranceAnnouncement))]
     internal static class AnnouncingNtfEntrance
     {
@@ -112,7 +114,8 @@ namespace Exiled.Events.Patches.Events.Map
                     new(OpCodes.Starg_S, 1),
 
                     // cassieUnitName = this.GetCassieUnitName(unitName);
-                    new(OpCodes.Callvirt, Method(typeof(NineTailedFoxNamingRule), nameof(NineTailedFoxNamingRule.GetCassieUnitName))),
+                    // TODO: Fix this. I currently have replaced it with LastGeneratedName as that seems the best fit, but probably is not correct.
+                    new(OpCodes.Callvirt, Method(typeof(NineTailedFoxNamingRule), nameof(NineTailedFoxNamingRule.LastGeneratedName))),
                     new(OpCodes.Stloc_0),
 
                     // scpsLeft = ev.ScpsLeft;

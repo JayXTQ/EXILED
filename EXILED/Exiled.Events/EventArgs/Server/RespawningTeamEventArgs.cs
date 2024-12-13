@@ -75,7 +75,7 @@ namespace Exiled.Events.EventArgs.Server
         /// <summary>
         /// Gets a value indicating what the next respawnable team is.
         /// </summary>
-        public SpawnableTeamType NextKnownTeam => Wave.TargetFaction.GetSpawnableTeam();
+        public Team NextKnownTeam => Wave.TargetFaction.GetSpawnableTeam();
 
         /// <summary>
         /// Gets or sets a value indicating whether the spawn can occur.

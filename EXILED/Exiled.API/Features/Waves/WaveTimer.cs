@@ -117,7 +117,7 @@ namespace Exiled.API.Features.Waves
         /// <param name="team">The team.</param>
         /// <param name="waves">The waves, if any.</param>
         /// <returns>A bool indicating if waves were found.</returns>
-        public static bool TryGetWaveTimers(SpawnableTeamType team, out List<WaveTimer> waves)
+        public static bool TryGetWaveTimers(Team team, out List<WaveTimer> waves)
         {
             if (!TimedWave.TryGetTimedWaves(team, out List<TimedWave> timedWaves))
             {

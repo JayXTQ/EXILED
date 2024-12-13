@@ -58,7 +58,7 @@ namespace Exiled.API.Features.Waves
         /// <summary>
         /// Gets the team of this wave.
         /// </summary>
-        public SpawnableTeamType Team => timedWave.TargetFaction.GetSpawnableTeam();
+        public Team Team => timedWave.TargetFaction.GetSpawnableTeam();
 
         /// <summary>
         /// Gets the maximum amount of people that can spawn in this wave.
@@ -102,15 +102,15 @@ namespace Exiled.API.Features.Waves
         /// <returns>
         /// A value indicating whether the wave were found.
         /// </returns>
-        public static bool TryGetTimedWaves(SpawnableTeamType team, out List<TimedWave> waves)
+        public static bool TryGetTimedWaves(Team team, out List<TimedWave> waves)
         {
-            if (team == SpawnableTeamType.None)
+            if (team is not Team.ChaosInsurgency and not Team.FoundationForces)
             {
                 waves = null;
                 return false;
             }
 
-            Faction faction = team == SpawnableTeamType.NineTailedFox ? Faction.FoundationStaff : Faction.FoundationEnemy;
+            Faction faction = team == Team.FoundationForces ? Faction.FoundationStaff : Faction.FoundationEnemy;
 
             return TryGetTimedWaves(faction, out waves);
         }

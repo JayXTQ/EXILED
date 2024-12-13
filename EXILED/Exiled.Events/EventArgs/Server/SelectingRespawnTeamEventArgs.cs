@@ -7,11 +7,8 @@
 
 namespace Exiled.Events.EventArgs.Server
 {
-    using System;
-
-    using Exiled.API.Features;
-    using Exiled.Events.EventArgs.Interfaces;
-    using Respawning;
+    using Interfaces;
+    using PlayerRoles;
 
     /// <summary>
     /// Contains all information before selecting the team to respawn next.
@@ -21,15 +18,15 @@ namespace Exiled.Events.EventArgs.Server
         /// <summary>
         /// Initializes a new instance of the <see cref="SelectingRespawnTeamEventArgs"/> class.
         /// </summary>
-        /// <param name="type">The <see cref="SpawnableTeamType"/> used as the starting value for this event.</param>
-        public SelectingRespawnTeamEventArgs(SpawnableTeamType type)
+        /// <param name="team">The <see cref="Team"/> used as the starting value for this event.</param>
+        public SelectingRespawnTeamEventArgs(Team team)
         {
-            Team = type;
+            Team = team;
         }
 
         /// <summary>
-        /// Gets or sets <see cref="SpawnableTeamType"/> that represents the team chosen to spawn.
+        /// Gets or sets <see cref="Team"/> that represents the team chosen to spawn.
         /// </summary>
-        public SpawnableTeamType Team { get; set; }
+        public Team Team { get; set; }
     }
 }

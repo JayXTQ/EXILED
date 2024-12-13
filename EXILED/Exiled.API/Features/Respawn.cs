@@ -64,9 +64,9 @@ namespace Exiled.API.Features
         }
 
         /// <summary>
-        /// Gets the next known <see cref="SpawnableTeamType"/> that will spawn.
+        /// Gets the next known <see cref="Team"/> that will spawn.
         /// </summary>
-        public static SpawnableTeamType NextKnownTeam => NextKnownFaction.GetSpawnableTeam();
+        public static Team NextKnownTeam => NextKnownFaction.GetSpawnableTeam();
 
         /* TODO: Possibly moved to TimedWave
         /// <summary>
@@ -92,12 +92,12 @@ namespace Exiled.API.Features
         /// <summary>
         /// Gets the current state of the <see cref="WaveManager"/>.
         /// </summary>
-        public static WaveManager.WaveQueueState CurrentState => WaveManager.State;
+        public static WaveQueueState CurrentState => WaveManager.State;
 
         /// <summary>
         /// Gets a value indicating whether a team is currently being spawned or the animations are playing for a team.
         /// </summary>
-        public static bool IsSpawning => WaveManager.State == WaveManager.WaveQueueState.WaveSpawning;
+        public static bool IsSpawning => WaveManager.State == WaveQueueState.WaveSpawning;
 
         /// <summary>
         /// Gets or sets a value indicating whether spawn protection is enabled.
